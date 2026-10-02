@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "error-container": "#ffdad6", "on-primary-fixed": "#011d35", "surface-bright": "#f8f9ff", "outline": "#74777e", "secondary": "#006a61", "secondary-container": "#86f2e4", "on-secondary-fixed-variant": "#005049", "background": "#f8f9ff", "primary-container": "#0f2942", "on-secondary-container": "#006f66", "secondary-fixed": "#89f5e7", "surface-dim": "#cbdbf5", "surface-container-highest": "#d3e4fe", "surface-container-high": "#dce9ff", "on-tertiary-container": "#7690ba", "on-primary-fixed-variant": "#314863", "inverse-surface": "#213145", "surface-container": "#e5eeff", "on-error-container": "#93000a", "on-error": "#ffffff", "primary": "#001428", "inverse-on-surface": "#eaf1ff", "tertiary-fixed": "#d5e3ff", "surface-container-low": "#eff4ff", "on-primary-container": "#7991af", "secondary-fixed-dim": "#6bd8cb", "surface": "#f8f9ff", "on-secondary-fixed": "#00201d", "on-background": "#0b1c30", "on-tertiary-fixed-variant": "#2d486d", "surface-tint": "#49607c", "error": "#ba1a1a", "on-surface-variant": "#43474d", "tertiary": "#00132c", "surface-container-lowest": "#ffffff", "surface-variant": "#d3e4fe", "on-primary": "#ffffff", "on-tertiary": "#ffffff", "tertiary-fixed-dim": "#adc8f5", "tertiary-container": "#07284c", "primary-fixed-dim": "#b0c9e8", "inverse-primary": "#b0c9e8", "on-secondary": "#ffffff", "on-tertiary-fixed": "#001c3b", "outline-variant": "#c3c6ce", "on-surface": "#0b1c30", "primary-fixed": "#d1e4ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-lg": "1.5rem", "margin-lg": "3rem", "space-xl": "2rem", "gutter-sm": "1rem", "margin-sm": "1rem", "space-md": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "gutter-lg": "2rem", "margin": "1.5rem" }, "fontFamily": { "body-md": ["Inter"], "headline-xl": ["Plus Jakarta Sans"], "label-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-lg": ["Inter"], "label-sm": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "headline-xl-mobile": ["Plus Jakarta Sans"] }, "fontSize": { "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "headline-xl": ["36px", { "lineHeight": "44px", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-lg": ["30px", { "lineHeight": "38px", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "14px", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "headline-xl-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center gap-space-sm bg-surface-container-lowest"><img alt="MedBridge Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X4Xixz5ysKeIo4wcFcMPOx0VS3nTNkcWEkhFOFoNFFm7ORkYP0nOGWaKaRyLIcp11qpdNQvITpECg11zHHhL0j5uegQN2f0zxAfuAo-WrjqUn2Xr5ej6DMy2jR6O6rXP6bdFFZCJxy30r-fs6yYuc0xkB-mxOOS02k2aE6Kupr8hpf7eF399myeaD7cB584AyeW7y0Ituy74usz75hnDAK4FpmvxjkC5SFa_JsFZ74RT-U7CpiECDP3-s"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary leading-tight tracking-tight">MedBridge</span><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Clinical Portal</span></div></div><div class="px-space-md py-space-sm"><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg" data-path="dashboard" href="#"><span class="material-symbols-outlined text-xl">dashboard</span><span>Dashboard</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg" data-path="pending-reviews" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-xl">assignment_late</span><span>Pending Reviews</span></div><span class="bg-secondary text-on-secondary font-label-sm text-label-sm px-space-xs py-0.5 rounded-full">12</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm transition-colors bg-primary-container text-on-primary font-label-lg rounded-lg" data-path="reviewed" href="#"><span class="material-symbols-outlined text-xl">verified_user</span><span>Reviewed</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg" data-path="patients" href="#"><span class="material-symbols-outlined text-xl">personal_injury</span><span>Patients</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg" data-path="prescriptions" href="#"><span class="material-symbols-outlined text-xl">prescriptions</span><span>Prescriptions</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg" data-path="medication-information" href="#"><span class="material-symbols-outlined text-xl">medication</span><span>Medication Information</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg" data-path="reports" href="#"><span class="material-symbols-outlined text-xl">monitoring</span><span>Reports</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg" data-path="settings" href="#"><span class="material-symbols-outlined text-xl">settings</span><span>Settings</span></a></nav></div></div><div class="p-space-md m-space-md rounded-xl bg-surface-container-low"><div class="flex items-center gap-space-xs text-secondary"><span class="material-symbols-outlined text-sm">lock</span><span class="font-label-sm text-label-sm uppercase tracking-wide">HIPAA Compliant</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">Clinical session active and encrypted.</p></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40"><div class="w-full h-16 px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-xl">search</span><input class="w-full bg-surface-container-low text-on-surface placeholder:text-on-surface-variant pl-10 pr-space-md py-2 rounded-lg font-body-md text-body-md outline-none focus:bg-surface-container-lowest shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all" placeholder="Search patients, prescriptions, MRN, Rx ID..." type="text"/></div><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-2 rounded-lg text-on-surface-variant whitespace-nowrap cursor-pointer"><span class="material-symbols-outlined text-lg text-secondary">local_hospital</span><span class="font-label-md text-label-md text-on-surface">St. Mary's General - Outpatient Pharmacy</span><span class="material-symbols-outlined text-base">arrow_drop_down</span></div></div><div class="flex items-center gap-space-md"><div class="hidden 2xl:flex items-center gap-space-xs bg-surface-container-highest px-space-sm py-1.5 rounded-full"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant">AI Safety Protocols Active - Clinical Verification Required</span></div><button aria-label="Notifications" class="relative p-2 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-2xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-error rounded-full ring-2 ring-surface-container-lowest"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeITi7HeRThRB1-O7LY7MnMEUQY4KNYbHt0V7HfjxpHC3pmfA0AQpFUqGAgHUFhMPFeovOoxzZT4GBsjipoe__6JbBlM9A-2Ebg01GSrbmPL8HF0qO1bxScP3nBEd37Ent6Dhxz8hgQSls-xFd9ofpfPsBi8ExJCmLmVXLY9aEjZ-Py7ADLNChKT9Fyr3r2RvoR7QqwuEvLld51p0a5eeBdWZ-twQCekOIKHwFk9t0HlwLB6mU6Unq"/><div class="hidden lg:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface font-medium leading-tight">Dr. Sarah Reid, PharmD</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Lead Clinical Pharmacist</span></div></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="w-full px-gutter py-space-lg flex flex-col gap-space-lg max-w-[1440px] mx-auto">
+<!-- Top Command & Action Bar -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold bg-secondary-fixed/50 px-space-xs py-0.5 rounded">Verified Handover Suite</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Discharge Regimen Protocol</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Patient Medication Handover Plan &amp; Discharge Cards</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Verified clinical medication plan ready for patient handover, digital share, and printable cards.</p>
+<!-- Metadata Pills -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs text-on-surface-variant">
+<div class="flex items-center gap-1.5 bg-surface-container-low px-space-sm py-1 rounded-lg">
+<span class="material-symbols-outlined text-sm text-secondary">person</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Farhan Ahmed</span>
+<span class="font-label-sm text-label-sm text-outline">MRN-88392</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-low px-space-sm py-1 rounded-lg">
+<span class="material-symbols-outlined text-sm text-on-tertiary-container">receipt_long</span>
+<span class="font-label-md text-label-md text-on-surface">Rx ID: <span class="font-semibold">RX-90823</span></span>
+</div>
+<div class="flex items-center gap-1.5 bg-secondary-container/40 px-space-sm py-1 rounded-lg text-on-secondary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-md text-label-md font-medium">Dr. Sarah Reid, PharmD</span>
+<span class="font-label-sm text-label-sm opacity-80">(Oct 24, 2024 • 10:35 AM)</span>
+</div>
+</div>
+</div>
+<!-- Action Panel -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm flex-wrap xl:justify-end">
+<!-- Language Switcher Segments -->
+<div class="flex bg-surface-container-low p-1 rounded-lg" id="language-switcher">
+<button class="px-space-sm py-1.5 rounded font-label-md text-label-md transition-all bg-surface-container-lowest text-primary shadow-sm font-semibold" id="btn-dual" onclick="setLanguageMode('dual')" type="button">Dual (EN + اردو)</button>
+<button class="px-space-sm py-1.5 rounded font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface" id="btn-en" onclick="setLanguageMode('en')" type="button">English Only</button>
+<button class="px-space-sm py-1.5 rounded font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface" id="btn-ur" onclick="setLanguageMode('ur')" type="button">اردو Only</button>
+</div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<button class="flex items-center justify-center gap-space-xs bg-primary text-on-primary hover:bg-primary-container px-space-md py-2.5 rounded-lg font-label-lg text-label-lg transition-all shadow-sm" onclick="window.print()" type="button">
+<span class="material-symbols-outlined text-lg">print</span>
+<span>Print Cards</span>
+</button>
+<button class="flex items-center justify-center gap-space-xs bg-surface-container text-primary hover:bg-surface-container-high px-space-sm py-2.5 rounded-lg font-label-lg text-label-lg transition-all" onclick="notifyPatient()" type="button">
+<span class="material-symbols-outlined text-lg text-secondary">phone_iphone</span>
+<span class="hidden md:inline">Send to App</span>
+</button>
+<button class="flex items-center justify-center gap-space-xs bg-surface-container text-primary hover:bg-surface-container-high px-space-sm py-2.5 rounded-lg font-label-lg text-label-lg transition-all" type="button">
+<span class="material-symbols-outlined text-lg">picture_as_pdf</span>
+<span class="hidden md:inline">Export PDF</span>
+</button>
+<button class="flex items-center justify-center p-2.5 bg-surface-container text-primary hover:bg-surface-container-high rounded-lg transition-all" title="Share via SMS / Caregiver Link" type="button">
+<span class="material-symbols-outlined text-lg">share</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Clinical Handover Banner -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<!-- Regimen Overview Card -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col justify-between gap-space-md">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed/50 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">medication</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-primary">Discharge Regimen Summary</span>
+<p class="font-body-md text-body-md text-on-surface-variant">3 Prescribed Medicines • 5-day antibiotic course • Complete adherence critical</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-wide bg-surface-container px-space-sm py-1 rounded-full text-secondary font-semibold">Active Care Episode</span>
+</div>
+<!-- 3 Highlight Pillars -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm pt-space-xs">
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-2xl">restaurant</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Meal Alignment</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Take With Food</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-2xl">timelapse</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Regimen Duration</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">5-Day Core Phase</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-2xl">verified_user</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Verification</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Interaction Clear</span>
+</div>
+</div>
+</div>
+<!-- Critical Safety Warning -->
+<div class="bg-error-container/60 p-space-sm rounded-lg flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-error text-xl shrink-0 mt-0.5">warning</span>
+<p class="font-body-sm text-body-sm text-on-error-container font-medium">
+<strong class="font-semibold text-on-error-container">Critical Safety Notice:</strong> Take all medications strictly as directed by your physician and verified by clinical pharmacy. Do not alter doses, pause antibiotics early, or crush capsules without clinical authorization.
+          </p>
+</div>
+</div>
+<!-- Emergency & Pharmacist Contact Card -->
+<div class="lg:col-span-4 bg-primary text-on-primary rounded-xl shadow-sm p-space-lg flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary-container font-semibold">Direct Pharmacy Line</span>
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed animate-pulse"></span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-primary">St. Mary's General Pharmacy</span>
+<p class="font-body-sm text-body-sm text-on-primary-container">Pharmacist on call 24/7 for discharge regimen questions or adverse reaction reporting.</p>
+</div>
+<div class="bg-primary-container p-space-md rounded-lg flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary-fixed text-2xl">support_agent</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-primary-container uppercase">Helpline</span>
+<span class="font-label-lg text-label-lg text-on-primary font-bold">+1 (800) 555-MEDS</span>
+</div>
+</div>
+<a class="bg-secondary text-on-secondary px-space-sm py-1.5 rounded font-label-md text-label-md font-semibold hover:bg-secondary/90 transition-colors" href="tel:18005556337">Call Now</a>
+</div>
+<div class="flex items-center justify-between text-on-primary-container font-label-sm text-label-sm pt-space-xs">
+<span>Lead Pharmacist: Dr. S. Reid</span>
+<span>Station Ext: #4489</span>
+</div>
+</div>
+</div>
+<!-- Section Heading: Signature Printable Medication Cards -->
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-xs pt-space-xs">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Bespoke Patient Cards</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Prescription Handover Cards</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md text-left sm:text-right">High-legibility design tailored for bedside counseling, multi-generational caregivers, and refrigerator placement.</p>
+</div>
+<!-- 3 High-Impact Signature Medication Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg" id="medication-cards-container">
+<!-- CARD 1: AMOXICILLIN 500 MG -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col justify-between hover:shadow-lg transition-all duration-200">
+<!-- Colored Header Banner -->
+<div class="bg-secondary px-space-lg py-space-md text-on-secondary flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-bold bg-surface-container-lowest/20 backdrop-blur-sm px-space-xs py-0.5 rounded text-on-secondary">Antibiotic • Complete Course</span>
+<span class="material-symbols-outlined text-xl">medication_liquid</span>
+</div>
+<div class="flex items-baseline justify-between mt-1">
+<h3 class="font-headline-md text-headline-md text-on-secondary font-bold tracking-tight">AMOXICILLIN</h3>
+<span class="font-headline-sm text-headline-sm text-secondary-fixed font-bold">500 MG</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-secondary/80">Oral Capsule • Generic for Amoxil</span>
+</div>
+<!-- Card Body -->
+<div class="p-space-lg flex flex-col gap-space-md flex-1">
+<!-- Quick Matrix Pills -->
+<div class="grid grid-cols-2 gap-space-xs bg-surface-container-low p-space-sm rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Dose Amount</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-base">pill</span>
+                1 Capsule
+              </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Duration</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-base">event</span>
+                5 Full Days
+              </span>
+</div>
+<div class="flex flex-col col-span-2 pt-1">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Frequency &amp; Timing</span>
+<span class="font-label-md text-label-md text-primary font-semibold">3 times daily (8:00 AM • 2:00 PM • 8:00 PM)</span>
+</div>
+</div>
+<!-- Meal Relation Alert -->
+<div class="flex items-center gap-space-sm bg-surface-container px-space-sm py-2 rounded-lg text-on-surface">
+<span class="material-symbols-outlined text-secondary text-xl">dinner_dining</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Food Relation</span>
+<span class="font-label-md text-label-md font-semibold text-primary">Take AFTER meals (with food)</span>
+</div>
+</div>
+<!-- Bilingual Instructions Block -->
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest rounded-lg p-space-xs">
+<!-- English Pane -->
+<div class="en-pane flex flex-col gap-1 p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase font-bold tracking-wider text-secondary">English Instructions</span>
+<span class="material-symbols-outlined text-sm">translate</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-medium leading-relaxed">
+                Take 1 capsule three times a day after meals for 5 days. Drink a full glass of water. Keep taking until finished.
+              </p>
+</div>
+<!-- Urdu Pane -->
+<div class="ur-pane flex flex-col gap-1 p-space-sm rounded-lg bg-secondary-fixed/20" dir="rtl">
+<div class="flex items-center justify-between text-on-secondary-fixed-variant">
+<span class="font-label-sm text-label-sm font-bold tracking-wide">اردو ہدایات (Urdu)</span>
+<span class="material-symbols-outlined text-sm">menu_book</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold leading-loose text-right">
+                کھانے کے بعد دن میں تین بار ایک کیپسول لیں، 5 دن تک۔ ایک گلاس پانی کے ساتھ لیں۔ بہتر محسوس ہونے کے باوجود کورس مکمل کریں۔
+              </p>
+</div>
+</div>
+</div>
+<!-- Verification Footprint -->
+<div class="bg-surface-container-low px-space-lg py-space-sm flex items-center justify-between gap-space-xs text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-secondary" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Pharmacist Verified • Reid, PharmD</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Batch: AMX-509</span>
+</div>
+</div>
+<!-- CARD 2: PARACETAMOL 500 MG -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col justify-between hover:shadow-lg transition-all duration-200">
+<!-- Colored Header Banner -->
+<div class="bg-primary-container px-space-lg py-space-md text-on-primary flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-bold bg-surface-container-lowest/15 backdrop-blur-sm px-space-xs py-0.5 rounded text-on-primary">Fever &amp; Pain Relief • As Needed</span>
+<span class="material-symbols-outlined text-xl text-primary-fixed-dim">thermostat</span>
+</div>
+<div class="flex items-baseline justify-between mt-1">
+<h3 class="font-headline-md text-headline-md text-on-primary font-bold tracking-tight">PARACETAMOL</h3>
+<span class="font-headline-sm text-headline-sm text-primary-fixed font-bold">500 MG</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-primary-container">Oral Tablets • Acetaminophen Equivalent</span>
+</div>
+<!-- Card Body -->
+<div class="p-space-lg flex flex-col gap-space-md flex-1">
+<!-- Quick Matrix Pills -->
+<div class="grid grid-cols-2 gap-space-xs bg-surface-container-low p-space-sm rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Dose Amount</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-base">crop_landscape</span>
+                2 Tablets (1000mg)
+              </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Max Limit</span>
+<span class="font-label-lg text-label-lg text-error font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-error text-base">crisis_alert</span>
+                Max 4000mg / 24h
+              </span>
+</div>
+<div class="flex flex-col col-span-2 pt-1">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Frequency &amp; Interval</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Every 6 hours as needed for pain or fever</span>
+</div>
+</div>
+<!-- Meal Relation Alert -->
+<div class="flex items-center gap-space-sm bg-surface-container px-space-sm py-2 rounded-lg text-on-surface">
+<span class="material-symbols-outlined text-secondary text-xl">flatware</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Food Relation</span>
+<span class="font-label-md text-label-md font-semibold text-primary">With or after meals (Gentle on stomach)</span>
+</div>
+</div>
+<!-- Bilingual Instructions Block -->
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest rounded-lg p-space-xs">
+<!-- English Pane -->
+<div class="en-pane flex flex-col gap-1 p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase font-bold tracking-wider text-secondary">English Instructions</span>
+<span class="material-symbols-outlined text-sm">translate</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-medium leading-relaxed">
+                Take 2 tablets every 6 hours only if you have fever or pain. Do not take more than 8 tablets in 24 hours.
+              </p>
+</div>
+<!-- Urdu Pane -->
+<div class="ur-pane flex flex-col gap-1 p-space-sm rounded-lg bg-secondary-fixed/20" dir="rtl">
+<div class="flex items-center justify-between text-on-secondary-fixed-variant">
+<span class="font-label-sm text-label-sm font-bold tracking-wide">اردو ہدایات (Urdu)</span>
+<span class="material-symbols-outlined text-sm">menu_book</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold leading-loose text-right">
+                بخار یا درد کی صورت میں ہر 6 گھنٹے بعد 2 گولیاں لیں۔ 24 گھنٹوں میں 8 گولیوں سے زیادہ نہ لیں۔
+              </p>
+</div>
+</div>
+</div>
+<!-- Verification Footprint -->
+<div class="bg-surface-container-low px-space-lg py-space-sm flex items-center justify-between gap-space-xs text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-secondary" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Pharmacist Verified • Reid, PharmD</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Batch: PARA-211</span>
+</div>
+</div>
+<!-- CARD 3: OMEPRAZOLE 20 MG -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col justify-between hover:shadow-lg transition-all duration-200">
+<!-- Colored Header Banner -->
+<div class="bg-tertiary-container px-space-lg py-space-md text-on-tertiary flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-bold bg-surface-container-lowest/15 backdrop-blur-sm px-space-xs py-0.5 rounded text-tertiary-fixed">Stomach Protection • Acid Reducer</span>
+<span class="material-symbols-outlined text-xl text-secondary-fixed">shield_with_heart</span>
+</div>
+<div class="flex items-baseline justify-between mt-1">
+<h3 class="font-headline-md text-headline-md text-on-tertiary font-bold tracking-tight">OMEPRAZOLE</h3>
+<span class="font-headline-sm text-headline-sm text-secondary-fixed font-bold">20 MG</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-tertiary-container">Delayed-Release Capsule • Prilosec</span>
+</div>
+<!-- Card Body -->
+<div class="p-space-lg flex flex-col gap-space-md flex-1">
+<!-- Quick Matrix Pills -->
+<div class="grid grid-cols-2 gap-space-xs bg-surface-container-low p-space-sm rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Dose Amount</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-base">vaccines</span>
+                1 Capsule
+              </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Duration</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-base">date_range</span>
+                14 Days
+              </span>
+</div>
+<div class="flex flex-col col-span-2 pt-1">
+<span class="font-label-sm text-label-sm text-outline uppercase font-medium">Frequency &amp; Timing</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Once daily in morning (Before breakfast)</span>
+</div>
+</div>
+<!-- Meal Relation Alert -->
+<div class="flex items-center gap-space-sm bg-surface-container px-space-sm py-2 rounded-lg text-on-surface">
+<span class="material-symbols-outlined text-secondary text-xl">free_breakfast</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase font-semibold">Critical Timing Rule</span>
+<span class="font-label-md text-label-md font-semibold text-primary">Take 30 mins BEFORE breakfast</span>
+</div>
+</div>
+<!-- Bilingual Instructions Block -->
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest rounded-lg p-space-xs">
+<!-- English Pane -->
+<div class="en-pane flex flex-col gap-1 p-space-sm rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase font-bold tracking-wider text-secondary">English Instructions</span>
+<span class="material-symbols-outlined text-sm">translate</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-medium leading-relaxed">
+                Take 1 capsule every morning 30 minutes before breakfast. Swallow whole, do not crush or chew.
+              </p>
+</div>
+<!-- Urdu Pane -->
+<div class="ur-pane flex flex-col gap-1 p-space-sm rounded-lg bg-secondary-fixed/20" dir="rtl">
+<div class="flex items-center justify-between text-on-secondary-fixed-variant">
+<span class="font-label-sm text-label-sm font-bold tracking-wide">اردو ہدایات (Urdu)</span>
+<span class="material-symbols-outlined text-sm">menu_book</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold leading-loose text-right">
+                روزانہ صبح ناشتے سے 30 منٹ پہلے ایک کیپسول لیں۔ کیپسول کو چبائے بغیر ثابت نگل لیں۔
+              </p>
+</div>
+</div>
+</div>
+<!-- Verification Footprint -->
+<div class="bg-surface-container-low px-space-lg py-space-sm flex items-center justify-between gap-space-xs text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-secondary" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Pharmacist Verified • Reid, PharmD</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Batch: OMP-703</span>
+</div>
+</div>
+</div>
+<!-- Section 3: Daily Schedule Timeline Visualizer -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">schedule</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Daily Administration Schedule Visualizer</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Synchronized 24-hour cycle to avoid drug interactions and optimize clinical absorption.</p>
+</div>
+</div>
+<!-- Print-friendly legend badge -->
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-secondary"></span> Mandatory Core</span>
+<span class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-primary-container"></span> As Needed (PRN)</span>
+</div>
+</div>
+<!-- Timeline Schedule Columns (Morning, Afternoon, Evening) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- TIME BLOCK 1: MORNING -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between bg-surface-container-lowest p-space-sm rounded-lg shadow-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-amber-500 text-2xl">wb_sunny</span>
+<div>
+<span class="font-label-lg text-label-lg font-bold text-primary">Morning Slot</span>
+<span class="font-label-sm text-label-sm text-outline block">Approx. 8:00 AM</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded text-secondary font-semibold">2 Medicines</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Medicine 1 in slot -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col gap-1 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-primary">Omeprazole 20mg</span>
+<span class="font-label-sm text-label-sm bg-tertiary-fixed text-on-tertiary-fixed px-1.5 py-0.5 rounded font-semibold">Step 1</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 Capsule • Take 30 mins <strong class="text-secondary font-bold uppercase">before</strong> breakfast.</p>
+<div class="text-right text-on-surface-variant font-body-sm text-body-sm" dir="rtl">
+                صبح ناشتے سے آدھا گھنٹہ پہلے لیں۔
+              </div>
+</div>
+<!-- Medicine 2 in slot -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col gap-1 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-primary">Amoxicillin 500mg</span>
+<span class="font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed px-1.5 py-0.5 rounded font-semibold">Step 2</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 Capsule • Take <strong class="text-secondary font-bold uppercase">after</strong> breakfast with water.</p>
+<div class="text-right text-on-surface-variant font-body-sm text-body-sm" dir="rtl">
+                ناشتے کے بعد ایک کیپسول پانی کے ساتھ لیں۔
+              </div>
+</div>
+</div>
+</div>
+<!-- TIME BLOCK 2: AFTERNOON -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between bg-surface-container-lowest p-space-sm rounded-lg shadow-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-2xl">sunny</span>
+<div>
+<span class="font-label-lg text-label-lg font-bold text-primary">Afternoon Slot</span>
+<span class="font-label-sm text-label-sm text-outline block">Approx. 2:00 PM</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded text-secondary font-semibold">1 + 1 Optional</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Medicine 1 in slot -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col gap-1 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-primary">Amoxicillin 500mg</span>
+<span class="font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed px-1.5 py-0.5 rounded font-semibold">Scheduled</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 Capsule • Take <strong class="text-secondary font-bold uppercase">after</strong> lunch with full water glass.</p>
+<div class="text-right text-on-surface-variant font-body-sm text-body-sm" dir="rtl">
+                دوپہر کے کھانے کے بعد ایک کیپسول لیں۔
+              </div>
+</div>
+<!-- Medicine 2 (PRN) -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col gap-1 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Paracetamol 500mg</span>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant px-1.5 py-0.5 rounded font-medium">If Needed</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">2 Tablets • Only if body pain or fever &gt; 38°C persists.</p>
+<div class="text-right text-on-surface-variant font-body-sm text-body-sm" dir="rtl">
+                صرف بخار یا شدید درد کی صورت میں لیں۔
+              </div>
+</div>
+</div>
+</div>
+<!-- TIME BLOCK 3: NIGHT -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between bg-surface-container-lowest p-space-sm rounded-lg shadow-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-fixed-dim text-2xl">bedtime</span>
+<div>
+<span class="font-label-lg text-label-lg font-bold text-primary">Evening / Night Slot</span>
+<span class="font-label-sm text-label-sm text-outline block">Approx. 8:00 PM</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container px-2 py-0.5 rounded text-secondary font-semibold">1 + 1 Optional</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Medicine 1 in slot -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col gap-1 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-primary">Amoxicillin 500mg</span>
+<span class="font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed px-1.5 py-0.5 rounded font-semibold">Final Daily Dose</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 Capsule • Take <strong class="text-secondary font-bold uppercase">after</strong> dinner before sleep.</p>
+<div class="text-right text-on-surface-variant font-body-sm text-body-sm" dir="rtl">
+                رات کے کھانے کے بعد آخری کیپسول لیں۔
+              </div>
+</div>
+<!-- Medicine 2 (PRN) -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col gap-1 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Paracetamol 500mg</span>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant px-1.5 py-0.5 rounded font-medium">Bedtime If Needed</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">2 Tablets • At least 6 hours after any afternoon dose.</p>
+<div class="text-right text-on-surface-variant font-body-sm text-body-sm" dir="rtl">
+                پچھلی خوراک سے 6 گھنٹے بعد ضرورت پڑنے پر۔
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 4: Printable Card Preview & Export Settings Bar -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col lg:flex-row items-center justify-between gap-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-2xl">style</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary font-bold">Physical Discharge Card Format Options</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ready-to-cut credit card / wallet card format and A4 bedside sheet generation with scannable QR verification code.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-md flex-wrap justify-end w-full lg:w-auto">
+<!-- Paper Format Select -->
+<div class="flex items-center gap-2 bg-surface-container-low px-space-sm py-2 rounded-lg text-on-surface">
+<span class="font-label-sm text-label-sm text-outline font-semibold uppercase">Layout:</span>
+<select class="bg-transparent font-label-md text-label-md text-primary font-semibold outline-none cursor-pointer">
+<option>Standard 3-Card Pocket Print (Foldable)</option>
+<option>Letter / A4 Bedside Sheet</option>
+<option>High Contrast Large Print (Elderly)</option>
+<option>Caregiver Quick Fridge Magnet Strip</option>
+</select>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="flex items-center gap-space-xs bg-secondary text-on-secondary px-space-md py-2.5 rounded-lg font-label-lg text-label-lg hover:bg-secondary/90 transition-all shadow-sm" onclick="window.print()" type="button">
+<span class="material-symbols-outlined text-lg">local_printshop</span>
+<span>Print Verified Set</span>
+</button>
+<button class="flex items-center gap-space-xs bg-surface-container text-primary px-space-md py-2.5 rounded-lg font-label-lg text-label-lg hover:bg-surface-container-high transition-all" id="btn-share" onclick="copyCaregiverLink()" type="button">
+<span class="material-symbols-outlined text-lg">link</span>
+<span>Copy Link</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Notification Toast Placeholder -->
+<div class="fixed bottom-6 right-6 bg-primary text-on-primary px-space-lg py-space-sm rounded-xl shadow-xl flex items-center gap-space-sm transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none z-50" id="toast">
+<span class="material-symbols-outlined text-secondary-fixed text-xl" id="toast-icon">check_circle</span>
+<span class="font-label-md text-label-md font-medium" id="toast-msg">Action confirmed</span>
+</div>
+</div>
+</div>
+<script>
+  function setLanguageMode(mode) {
+    const enPanes = document.querySelectorAll('.en-pane');
+    const urPanes = document.querySelectorAll('.ur-pane');
+    const btnDual = document.getElementById('btn-dual');
+    const btnEn = document.getElementById('btn-en');
+    const btnUr = document.getElementById('btn-ur');
+
+    // Reset button states
+    [btnDual, btnEn, btnUr].forEach(b => {
+      b.className = 'px-space-sm py-1.5 rounded font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface';
+    });
+
+    if (mode === 'dual') {
+      enPanes.forEach(el => el.classList.remove('hidden'));
+      urPanes.forEach(el => el.classList.remove('hidden'));
+      btnDual.className = 'px-space-sm py-1.5 rounded font-label-md text-label-md transition-all bg-surface-container-lowest text-primary shadow-sm font-semibold';
+      showToast('Switched to Dual Language View (English + اردو)');
+    } else if (mode === 'en') {
+      enPanes.forEach(el => el.classList.remove('hidden'));
+      urPanes.forEach(el => el.classList.add('hidden'));
+      btnEn.className = 'px-space-sm py-1.5 rounded font-label-md text-label-md transition-all bg-surface-container-lowest text-primary shadow-sm font-semibold';
+      showToast('Switched to English View Only');
+    } else if (mode === 'ur') {
+      enPanes.forEach(el => el.classList.add('hidden'));
+      urPanes.forEach(el => el.classList.remove('hidden'));
+      btnUr.className = 'px-space-sm py-1.5 rounded font-label-md text-label-md transition-all bg-surface-container-lowest text-primary shadow-sm font-semibold';
+      showToast('اردو زبان کا منظر منتخب کیا گیا');
+    }
+  }
+
+  function notifyPatient() {
+    showToast('Secure handover card pushed to Patient Portal & Mobile App');
+  }
+
+  function copyCaregiverLink() {
+    navigator.clipboard?.writeText(window.location.href);
+    showToast('Caregiver secure access link copied to clipboard');
+  }
+
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    const msg = document.getElementById('toast-msg');
+    if (!toast || !msg) return;
+    msg.textContent = message;
+    toast.classList.remove('translate-y-24', 'opacity-0');
+    toast.classList.add('translate-y-0', 'opacity-100');
+    setTimeout(() => {
+      toast.classList.add('translate-y-24', 'opacity-0');
+      toast.classList.remove('translate-y-0', 'opacity-100');
+    }, 2800);
+  }
+</script></main></div></body></html>

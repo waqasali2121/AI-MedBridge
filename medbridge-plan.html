@@ -1,0 +1,668 @@
+<title>MedBridge Implementation Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0F2942;
+  --navy-deep: #001428;
+  --teal: #0D9488;
+  --teal-light: #86F2E4;
+  --teal-bg: #CCFBF1;
+  --surface: #F8FAFC;
+  --card: #FFFFFF;
+  --border: #E2E8F0;
+  --border-strong: #CBD5E1;
+  --text: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --text-dim: #94A3B8;
+  --error: #DC2626;
+  --error-bg: #FEF2F2;
+  --warning: #D97706;
+  --warning-bg: #FFFBEB;
+  --info: #0284C7;
+  --info-bg: #F0F9FF;
+  --success: #16A34A;
+  --success-bg: #F0FDF4;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --navy: #B0C9E8;
+    --navy-deep: #D1E4FF;
+    --teal: #6BD8CB;
+    --teal-light: #005049;
+    --teal-bg: #003D38;
+    --surface: #0B1C30;
+    --card: #132A42;
+    --border: #1E3A5F;
+    --border-strong: #2D486D;
+    --text: #EAF1FF;
+    --text-secondary: #B0C9E8;
+    --text-muted: #7991AF;
+    --text-dim: #49607C;
+    --error: #FCA5A5;
+    --error-bg: #450A0A;
+    --warning: #FCD34D;
+    --warning-bg: #451A03;
+    --info: #7DD3FC;
+    --info-bg: #0C1D2E;
+    --success: #86EFAC;
+    --success-bg: #052E16;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --navy: #B0C9E8;
+  --navy-deep: #D1E4FF;
+  --teal: #6BD8CB;
+  --teal-light: #005049;
+  --teal-bg: #003D38;
+  --surface: #0B1C30;
+  --card: #132A42;
+  --border: #1E3A5F;
+  --border-strong: #2D486D;
+  --text: #EAF1FF;
+  --text-secondary: #B0C9E8;
+  --text-muted: #7991AF;
+  --text-dim: #49607C;
+  --error: #FCA5A5;
+  --error-bg: #450A0A;
+  --warning: #FCD34D;
+  --warning-bg: #451A03;
+  --info: #7DD3FC;
+  --info-bg: #0C1D2E;
+  --success: #86EFAC;
+  --success-bg: #052E16;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--surface);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-inline: 24px;
+  line-height: 1.6;
+}
+h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: var(--navy-deep); margin: 0; }
+h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin-top: 48px; padding-bottom: 12px; border-bottom: 2px solid var(--border); }
+h3 { font-size: 17px; font-weight: 700; margin-top: 28px; }
+h4 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--teal); margin-top: 20px; }
+p { color: var(--text-secondary); margin: 8px 0; }
+a { color: var(--teal); text-decoration: none; }
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, #1E3A5F 50%, var(--teal) 100%);
+  border-radius: 16px;
+  padding: 40px 36px;
+  margin-top: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(13,148,136,0.15);
+}
+.hero h1 { color: #FFFFFF; font-size: 36px; }
+.hero p { color: rgba(255,255,255,0.8); font-size: 15px; max-width: 600px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 11px; font-weight: 600;
+  color: var(--teal-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+.hero-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal-light); }
+
+/* Stack table */
+.stack-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 13px;
+  margin-top: 16px;
+}
+.stack-grid > div {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+.stack-grid > div:nth-child(3n+1) { font-weight: 600; color: var(--text); background: var(--surface); }
+.stack-grid > div:nth-child(3n+2) { font-weight: 600; color: var(--teal); font-family: 'Plus Jakarta Sans', sans-serif; }
+.stack-grid > div:nth-child(3n) { color: var(--text-muted); }
+.stack-grid > .sg-head { background: var(--navy-deep); color: #fff !important; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; padding: 8px 14px; }
+
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 16px;
+}
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 16px; }
+.phase-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.phase-card::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+}
+.phase-card.p1::before { background: var(--teal); }
+.phase-card.p2::before { background: var(--info); }
+.phase-card.p3::before { background: var(--warning); }
+.phase-card.p4::before { background: #8B5CF6; }
+.phase-card.p5::before { background: var(--navy-deep); }
+.phase-card.p6::before { background: var(--success); }
+.phase-card.p7::before { background: var(--error); }
+.phase-card.p8::before { background: var(--text-muted); }
+.phase-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.phase-card h3 { font-size: 15px; margin-top: 0; }
+.phase-card .days { font-size: 11px; color: var(--text-muted); font-weight: 600; margin-top: 4px; }
+
+/* Checklist */
+.checklist { list-style: none; padding: 0; margin: 8px 0; }
+.checklist li {
+  position: relative;
+  padding: 5px 0 5px 24px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.checklist li::before {
+  content: '';
+  position: absolute; left: 2px; top: 10px;
+  width: 14px; height: 14px;
+  border: 2px solid var(--border-strong);
+  border-radius: 3px;
+}
+
+/* Color swatches */
+.swatch-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.swatch {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 12px 6px 6px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 12px;
+}
+.swatch-dot { width: 28px; height: 28px; border-radius: 6px; flex-shrink: 0; }
+.swatch-label { font-weight: 600; color: var(--text); }
+.swatch-hex { color: var(--text-muted); font-family: monospace; font-size: 11px; }
+
+/* Design screens */
+.screen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 16px; }
+.screen-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.screen-card .screen-header {
+  padding: 14px 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 8px;
+}
+.screen-card .screen-header .material-symbols-outlined { font-size: 20px; color: var(--teal); }
+.screen-card .screen-header span:last-child { font-weight: 600; font-size: 13px; color: var(--text); }
+.screen-card .screen-body { padding: 14px 16px; font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+.screen-body ul { padding-left: 16px; margin: 6px 0; }
+.screen-body li { margin: 3px 0; }
+
+/* Badge */
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.badge.teal { background: var(--teal-bg); color: var(--teal); }
+.badge.navy { background: var(--navy-deep); color: #fff; }
+.badge.warn { background: var(--warning-bg); color: var(--warning); }
+.badge.err { background: var(--error-bg); color: var(--error); }
+.badge.info { background: var(--info-bg); color: var(--info); }
+.badge.ok { background: var(--success-bg); color: var(--success); }
+
+/* Pipeline */
+.pipeline { display: flex; flex-wrap: wrap; align-items: center; gap: 0; margin: 16px 0; }
+.pipeline-step {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  font-size: 12px; font-weight: 600; color: var(--text);
+  white-space: nowrap;
+}
+.pipeline-step:first-child { border-radius: 8px 0 0 8px; }
+.pipeline-step:last-child { border-radius: 0 8px 8px 0; }
+.pipeline-step .material-symbols-outlined { font-size: 16px; color: var(--teal); }
+.pipeline-arrow { color: var(--text-dim); font-size: 14px; padding: 0 2px; }
+
+/* Safety */
+.safety-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.safety-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; padding: 10px 12px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
+.safety-item .material-symbols-outlined { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.safety-no .material-symbols-outlined { color: var(--error); }
+.safety-yes .material-symbols-outlined { color: var(--success); }
+
+/* Team */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
+.team-card { padding: 16px; border-radius: 10px; border: 1px solid var(--border); background: var(--card); }
+.team-card .role { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+.team-card h4 { margin-top: 0; text-transform: none; letter-spacing: 0; font-size: 14px; color: var(--text); }
+
+/* Toc */
+.toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+.toc a {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px; font-weight: 600;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: all 0.15s;
+}
+.toc a:hover { border-color: var(--teal); color: var(--teal); }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .hero { padding: 28px 20px; }
+  .hero h1 { font-size: 26px; }
+  .stack-grid { grid-template-columns: 1fr; }
+  .stack-grid > .sg-head:nth-child(n+2) { display: none; }
+  .safety-grid { grid-template-columns: 1fr; }
+  .pipeline { flex-direction: column; align-items: stretch; }
+  .pipeline-step { border-radius: 8px !important; }
+  .pipeline-arrow { transform: rotate(90deg); align-self: center; }
+  h1 { font-size: 24px; }
+}
+</style>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge"><span class="dot"></span> Implementation Plan v1.0</div>
+  <h1>MedBridge</h1>
+  <p style="font-size:17px; color:rgba(255,255,255,0.95); margin-top:4px; font-weight:500;">AI-Assisted Medicine Handover & Comprehension Assistant</p>
+  <p>Prescription upload → PDF extraction → AI explanation in English & Urdu → Pharmacist review → Patient handover card. Built with safety-first architecture where AI is never the first or final authority.</p>
+  <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:20px;">
+    <span class="badge teal">React Native + Expo</span>
+    <span class="badge teal">Next.js + TypeScript</span>
+    <span class="badge teal">Python + FastAPI</span>
+    <span class="badge teal">PostgreSQL</span>
+    <span class="badge teal">Ollama AI</span>
+    <span class="badge teal">PyMuPDF</span>
+  </div>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <a href="#stack">Tech Stack</a>
+  <a href="#designs">UI Designs</a>
+  <a href="#colors">Design System</a>
+  <a href="#pipeline">AI Pipeline</a>
+  <a href="#phases">Build Phases</a>
+  <a href="#safety">Safety Rules</a>
+  <a href="#team">Team</a>
+</div>
+
+<!-- TECH STACK -->
+<h2 id="stack">Technology Stack</h2>
+<div class="stack-grid">
+  <div class="sg-head">Layer</div><div class="sg-head">Technology</div><div class="sg-head">Why</div>
+  <div>Patient app</div><div>React Native + Expo</div><div>Android & iOS from one codebase</div>
+  <div>Pharmacist dashboard</div><div>Next.js + TypeScript</div><div>Professional web application</div>
+  <div>UI styling</div><div>Tailwind CSS</div><div>Consistent design system with custom tokens</div>
+  <div>Backend</div><div>Python + FastAPI</div><div>Excellent for AI/document processing</div>
+  <div>Database</div><div>PostgreSQL</div><div>Powerful, free, open-source RDBMS</div>
+  <div>ORM</div><div>SQLAlchemy + Alembic</div><div>Type-safe models + migrations</div>
+  <div>PDF extraction</div><div>PyMuPDF (primary)</div><div>Direct text extraction from computerized PDFs</div>
+  <div>OCR fallback</div><div>Tesseract OCR</div><div>Free — only for scanned/image documents</div>
+  <div>AI runtime</div><div>Ollama (local)</div><div>Run AI models locally, no API cost</div>
+  <div>AI model</div><div>Qwen / Gemma</div><div>Open-weight model, zero recurring cost</div>
+  <div>Validation</div><div>Python rule engine</div><div>Deterministic safety checks before AI</div>
+  <div>Auth</div><div>JWT + FastAPI</div><div>Free, stateless authentication</div>
+  <div>Icons</div><div>Material Symbols Outlined</div><div>Consistent with design system</div>
+  <div>Deployment</div><div>Docker + Local</div><div>$0 initial infrastructure</div>
+</div>
+
+<!-- DESIGNS -->
+<h2 id="designs"><span class="material-symbols-outlined" style="vertical-align:middle;color:var(--teal);margin-right:6px;">design_services</span>Uploaded UI Designs</h2>
+<p>Four production-ready design screens have been reviewed and integrated into the implementation plan.</p>
+
+<div class="screen-grid">
+  <div class="screen-card">
+    <div class="screen-header">
+      <span class="material-symbols-outlined">dashboard</span>
+      <span>Pharmacist Dashboard Home</span>
+    </div>
+    <div class="screen-body">
+      <strong>Layout:</strong> Fixed 288px sidebar + blurred header + 1440px content<br>
+      <strong>Key components:</strong>
+      <ul>
+        <li>4 KPI metric cards (pending, reviewed, clarification, handover)</li>
+        <li>Clinical safety banner with AI disclaimer</li>
+        <li>Prescription review queue with patient cards</li>
+        <li>AI engine status with 99.4% OCR fidelity gauge</li>
+        <li>Shift notes & flags panel</li>
+        <li>Live bilingual handover card preview</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="screen-card">
+    <div class="screen-header">
+      <span class="material-symbols-outlined">fact_check</span>
+      <span>Prescription Review & Verification</span>
+    </div>
+    <div class="screen-body">
+      <strong>Layout:</strong> 12-col grid, 6+6 split<br>
+      <strong>Key components:</strong>
+      <ul>
+        <li>Patient dossier header with vitals strip</li>
+        <li>E-prescription document viewer with zoom controls</li>
+        <li>OCR confidence overlay badge (99.2%)</li>
+        <li>Medicine verification form (editable fields)</li>
+        <li>AI-drafted bilingual explanation panel (EN/Urdu tabs)</li>
+        <li>Sticky action bar: Save / Flag / Clarify / Approve</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="screen-card">
+    <div class="screen-header">
+      <span class="material-symbols-outlined">medication</span>
+      <span>Medicine Handover Cards (Bilingual)</span>
+    </div>
+    <div class="screen-body">
+      <strong>Layout:</strong> 3-column card grid + schedule visualizer<br>
+      <strong>Key components:</strong>
+      <ul>
+        <li>Color-coded medication cards (teal / navy / dark blue)</li>
+        <li>Bilingual English + Urdu (RTL) instruction blocks</li>
+        <li>Daily schedule visualizer (Morning / Afternoon / Night)</li>
+        <li>Pharmacist verified footer on each card</li>
+        <li>Language mode switcher (Dual / EN / UR)</li>
+        <li>Export: Print / PDF / Send to App / Share Link</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="screen-card">
+    <div class="screen-header">
+      <span class="material-symbols-outlined">star</span>
+      <span>MedBridge Logo & Brand</span>
+    </div>
+    <div class="screen-body">
+      <strong>Mark:</strong> Navy→teal gradient with bridge arch + healthcare cross<br>
+      <strong>Typography:</strong>
+      <ul>
+        <li>"Med" in navy <code>#0F2942</code></li>
+        <li>"Bridge" in teal <code>#0D9488</code></li>
+        <li>Tagline: "MEDICATION HANDOVER" in slate</li>
+        <li>Font: Plus Jakarta Sans 800</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- DESIGN SYSTEM -->
+<h2 id="colors"><span class="material-symbols-outlined" style="vertical-align:middle;color:var(--teal);margin-right:6px;">palette</span>Design System</h2>
+
+<h3>Core Palette</h3>
+<div class="swatch-row">
+  <div class="swatch"><div class="swatch-dot" style="background:#001428"></div><div><div class="swatch-label">Primary</div><div class="swatch-hex">#001428</div></div></div>
+  <div class="swatch"><div class="swatch-dot" style="background:#0F2942"></div><div><div class="swatch-label">Primary Container</div><div class="swatch-hex">#0F2942</div></div></div>
+  <div class="swatch"><div class="swatch-dot" style="background:#006A61"></div><div><div class="swatch-label">Secondary (Teal)</div><div class="swatch-hex">#006A61</div></div></div>
+  <div class="swatch"><div class="swatch-dot" style="background:#86F2E4"></div><div><div class="swatch-label">Secondary Container</div><div class="swatch-hex">#86F2E4</div></div></div>
+  <div class="swatch"><div class="swatch-dot" style="background:#BA1A1A"></div><div><div class="swatch-label">Error</div><div class="swatch-hex">#BA1A1A</div></div></div>
+  <div class="swatch"><div class="swatch-dot" style="background:#F8F9FF"></div><div><div class="swatch-label">Surface</div><div class="swatch-hex">#F8F9FF</div></div></div>
+</div>
+
+<h3>Clinical Verification Badges</h3>
+<div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;">
+  <span class="badge info"><span class="material-symbols-outlined" style="font-size:14px">auto_awesome</span> AI Extracted</span>
+  <span class="badge ok"><span class="material-symbols-outlined" style="font-size:14px">check</span> User Confirmed</span>
+  <span class="badge teal"><span class="material-symbols-outlined" style="font-size:14px">verified</span> Pharmacist Verified</span>
+  <span class="badge warn"><span class="material-symbols-outlined" style="font-size:14px">warning</span> Needs Clarification</span>
+  <span class="badge err"><span class="material-symbols-outlined" style="font-size:14px">error</span> Critical / Error</span>
+</div>
+
+<h3>Typography</h3>
+<div class="card" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+  <div>
+    <h4 style="margin-top:0; color:var(--text)">Headlines — Plus Jakarta Sans</h4>
+    <div style="font-family:'Plus Jakarta Sans'; font-size:28px; font-weight:700; color:var(--navy-deep); letter-spacing:-0.02em;">36 / 30 / 22 / 18px</div>
+    <p style="font-size:12px;">Geometric warmth for section titles, patient names, card headers</p>
+  </div>
+  <div>
+    <h4 style="margin-top:0; color:var(--text)">Body & Data — Inter</h4>
+    <div style="font-family:'Inter'; font-size:15px; color:var(--text); font-variant-numeric:tabular-nums;">16 / 14 / 12 / 10px · <code>tnum</code> enabled</div>
+    <p style="font-size:12px;">Optical precision for dosages (500mg), timestamps, clinical tables</p>
+  </div>
+</div>
+
+<!-- PIPELINE -->
+<h2 id="pipeline"><span class="material-symbols-outlined" style="vertical-align:middle;color:var(--teal);margin-right:6px;">account_tree</span>AI Pipeline & Extraction Strategy</h2>
+
+<h3>PDF Extraction (Primary Path)</h3>
+<div class="pipeline">
+  <div class="pipeline-step"><span class="material-symbols-outlined">upload_file</span>Upload PDF</div>
+  <span class="pipeline-arrow">→</span>
+  <div class="pipeline-step"><span class="material-symbols-outlined">picture_as_pdf</span>PyMuPDF</div>
+  <span class="pipeline-arrow">→</span>
+  <div class="pipeline-step"><span class="material-symbols-outlined">text_snippet</span>Extract Text</div>
+  <span class="pipeline-arrow">→</span>
+  <div class="pipeline-step"><span class="material-symbols-outlined">check_circle</span>High Confidence (1.0)</div>
+</div>
+<p style="font-size:13px;">Tesseract OCR runs <strong>only</strong> when PyMuPDF finds no extractable text (scanned/image PDFs).</p>
+
+<h3>Safety-First AI Pipeline</h3>
+<div class="pipeline">
+  <div class="pipeline-step"><span class="material-symbols-outlined">verified</span>Verified Data</div>
+  <span class="pipeline-arrow">→</span>
+  <div class="pipeline-step"><span class="material-symbols-outlined">lock</span>Constrained Prompt</div>
+  <span class="pipeline-arrow">→</span>
+  <div class="pipeline-step"><span class="material-symbols-outlined">smart_toy</span>Ollama LLM</div>
+  <span class="pipeline-arrow">→</span>
+  <div class="pipeline-step"><span class="material-symbols-outlined">shield</span>Safety Validator</div>
+  <span class="pipeline-arrow">→</span>
+  <div class="pipeline-step"><span class="material-symbols-outlined">gavel</span>Pharmacist Review</div>
+</div>
+<p style="font-size:13px;">The LLM is <strong>never the first or final authority</strong>. Every output is validated then reviewed by a pharmacist.</p>
+
+<h3>Status Verification Chain</h3>
+<div class="pipeline">
+  <div class="pipeline-step" style="background:var(--info-bg);">OCR Extracted</div>
+  <span class="pipeline-arrow">→</span>
+  <div class="pipeline-step" style="background:var(--success-bg);">User Confirmed</div>
+  <span class="pipeline-arrow">→</span>
+  <div class="pipeline-step" style="background:var(--warning-bg);">AI Generated</div>
+  <span class="pipeline-arrow">→</span>
+  <div class="pipeline-step" style="background:var(--teal-bg);">Pharmacist Reviewed</div>
+  <span class="pipeline-arrow">→</span>
+  <div class="pipeline-step" style="background:var(--teal-bg); font-weight:700;">Approved</div>
+</div>
+
+<!-- PHASES -->
+<h2 id="phases"><span class="material-symbols-outlined" style="vertical-align:middle;color:var(--teal);margin-right:6px;">rocket_launch</span>Build Phases</h2>
+
+<div class="card-grid">
+  <div class="phase-card p1">
+    <div class="phase-num" style="color:var(--teal)">Phase 1</div>
+    <h3>Foundation</h3>
+    <div class="days">Days 1–3</div>
+    <ul class="checklist">
+      <li>FastAPI + PostgreSQL + SQLAlchemy setup</li>
+      <li>All 6 database models + Alembic migrations</li>
+      <li>JWT authentication (register, login, roles)</li>
+      <li>Expo project + NativeWind + tab nav</li>
+      <li>Next.js dashboard + sidebar/header layout</li>
+      <li>Docker Compose (DB + Ollama)</li>
+    </ul>
+  </div>
+  <div class="phase-card p2">
+    <div class="phase-num" style="color:var(--info)">Phase 2</div>
+    <h3>Upload & Extraction</h3>
+    <div class="days">Days 4–7</div>
+    <ul class="checklist">
+      <li>File upload endpoint (PDF/JPG/PNG, 10MB max)</li>
+      <li>PyMuPDF text extraction (primary path)</li>
+      <li>Tesseract OCR fallback for scanned docs</li>
+      <li>LLM structured extraction via Ollama</li>
+      <li>Mobile upload flow + progress indicator</li>
+      <li>Extraction review screen with editable cards</li>
+    </ul>
+  </div>
+  <div class="phase-card p3">
+    <div class="phase-num" style="color:var(--warning)">Phase 3</div>
+    <h3>Confirmation & Rules</h3>
+    <div class="days">Days 8–10</div>
+    <ul class="checklist">
+      <li>Rule engine: duplicates, missing fields, confidence</li>
+      <li>User confirmation flow with warning acknowledgment</li>
+      <li>Language selection (English / اردو)</li>
+      <li>Audit logging for all state changes</li>
+    </ul>
+  </div>
+  <div class="phase-card p4">
+    <div class="phase-num" style="color:#8B5CF6">Phase 4</div>
+    <h3>AI Explanation</h3>
+    <div class="days">Days 11–14</div>
+    <ul class="checklist">
+      <li>Constrained English generation prompt</li>
+      <li>Urdu translation/generation prompt</li>
+      <li>Output safety validation (no diagnosis/dose)</li>
+      <li>Handover card data builder</li>
+      <li>Mobile AI handover screen + language toggle</li>
+    </ul>
+  </div>
+  <div class="phase-card p5">
+    <div class="phase-num" style="color:var(--navy)">Phase 5</div>
+    <h3>Pharmacist Review</h3>
+    <div class="days">Days 15–18</div>
+    <ul class="checklist">
+      <li>Dashboard: KPI cards + review queue (from designs)</li>
+      <li>Split-pane review screen (from designs)</li>
+      <li>Approve / Reject / Comment workflow</li>
+      <li>Bilingual AI explanation panel (EN/UR tabs)</li>
+      <li>Sticky action bar with legal responsibility notice</li>
+    </ul>
+  </div>
+  <div class="phase-card p6">
+    <div class="phase-num" style="color:var(--success)">Phase 6</div>
+    <h3>Handover Cards</h3>
+    <div class="days">Days 19–21</div>
+    <ul class="checklist">
+      <li>Color-coded medication cards (from designs)</li>
+      <li>Bilingual instruction blocks (EN + Urdu RTL)</li>
+      <li>Daily schedule visualizer (AM/PM/Night)</li>
+      <li>Export: Print / PDF / Send to App / Share</li>
+      <li>Prescription history list</li>
+    </ul>
+  </div>
+  <div class="phase-card p7">
+    <div class="phase-num" style="color:var(--error)">Phase 7</div>
+    <h3>Safety Testing</h3>
+    <div class="days">Days 22–25</div>
+    <ul class="checklist">
+      <li>End-to-end workflow testing</li>
+      <li>10 synthetic test scenarios from PRD</li>
+      <li>AI safety validation (7 safety requirements)</li>
+      <li>Demo data + demo script preparation</li>
+    </ul>
+  </div>
+  <div class="phase-card p8">
+    <div class="phase-num" style="color:var(--text-muted)">Phase 8</div>
+    <h3>Polish & Deploy</h3>
+    <div class="days">Days 26–28</div>
+    <ul class="checklist">
+      <li>Error handling (6 error cases from PRD)</li>
+      <li>Urdu RTL support polish</li>
+      <li>Docker deployment + seeding script</li>
+      <li>90-second hackathon demo preparation</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SAFETY -->
+<h2 id="safety"><span class="material-symbols-outlined" style="vertical-align:middle;color:var(--error);margin-right:6px;">gavel</span>Safety Boundaries (Hardcoded)</h2>
+<p>Enforced at prompt level <strong>AND</strong> validated in post-processing. The AI explains verified information — it does not prescribe or diagnose.</p>
+
+<div class="safety-grid">
+  <div class="safety-item safety-no"><span class="material-symbols-outlined">block</span><div><strong>No diagnosis</strong><br><span style="color:var(--text-muted);font-size:12px;">AI shall not diagnose any condition</span></div></div>
+  <div class="safety-item safety-no"><span class="material-symbols-outlined">block</span><div><strong>No dose changes</strong><br><span style="color:var(--text-muted);font-size:12px;">AI shall not alter prescribed dosage</span></div></div>
+  <div class="safety-item safety-no"><span class="material-symbols-outlined">block</span><div><strong>No treatment recommendations</strong><br><span style="color:var(--text-muted);font-size:12px;">AI shall not recommend medicines</span></div></div>
+  <div class="safety-item safety-no"><span class="material-symbols-outlined">block</span><div><strong>No invented information</strong><br><span style="color:var(--text-muted);font-size:12px;">Missing fields stay blank, never fabricated</span></div></div>
+  <div class="safety-item safety-yes"><span class="material-symbols-outlined">check_circle</span><div><strong>Explain verified data only</strong><br><span style="color:var(--text-muted);font-size:12px;">Source-constrained generation</span></div></div>
+  <div class="safety-item safety-yes"><span class="material-symbols-outlined">check_circle</span><div><strong>Flag uncertainty</strong><br><span style="color:var(--text-muted);font-size:12px;">Low-confidence items flagged for review</span></div></div>
+  <div class="safety-item safety-yes"><span class="material-symbols-outlined">check_circle</span><div><strong>Pharmacist has final authority</strong><br><span style="color:var(--text-muted);font-size:12px;">Clinical content requires human sign-off</span></div></div>
+  <div class="safety-item safety-yes"><span class="material-symbols-outlined">check_circle</span><div><strong>Visible verification state</strong><br><span style="color:var(--text-muted);font-size:12px;">Every piece of content is traceable</span></div></div>
+</div>
+
+<!-- TEAM -->
+<h2 id="team"><span class="material-symbols-outlined" style="vertical-align:middle;color:var(--teal);margin-right:6px;">groups</span>Team Assignment</h2>
+
+<div class="team-grid">
+  <div class="team-card">
+    <div class="role" style="color:var(--teal)">Member 1</div>
+    <h4>Product / Domain Lead</h4>
+    <p style="font-size:12px;">Requirements, user journey, safety rules, demo script, 90-second pitch</p>
+  </div>
+  <div class="team-card">
+    <div class="role" style="color:var(--info)">Member 2</div>
+    <h4>Frontend (Mobile)</h4>
+    <p style="font-size:12px;">React Native app, all patient screens, upload flow, handover cards</p>
+  </div>
+  <div class="team-card">
+    <div class="role" style="color:var(--warning)">Member 3</div>
+    <h4>Backend Developer</h4>
+    <p style="font-size:12px;">FastAPI, database, auth, APIs, prescription workflow, audit logging</p>
+  </div>
+  <div class="team-card">
+    <div class="role" style="color:#8B5CF6">Member 4</div>
+    <h4>AI / OCR Engineer</h4>
+    <p style="font-size:12px;">PyMuPDF, Tesseract, Ollama integration, prompt engineering, AI safety</p>
+  </div>
+  <div class="team-card">
+    <div class="role" style="color:var(--navy)">Member 5</div>
+    <h4>Frontend (Web) + QA</h4>
+    <p style="font-size:12px;">Pharmacist dashboard (Next.js), integration testing, demo data, deployment</p>
+  </div>
+</div>
+
+<div style="margin-top:48px; padding:24px; border-radius:12px; background:var(--card); border:1px solid var(--border); text-align:center;">
+  <p style="font-size:13px; color:var(--text-muted); margin:0;">MedBridge Implementation Plan v1.0 — Full details in <code>IMPLEMENTATION_PLAN.md</code></p>
+  <p style="font-size:11px; color:var(--text-dim); margin-top:4px;">4 design screens integrated · 8 build phases · 28 day timeline · 5-person team</p>
+</div>

@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "MedBridge",
+    "slug": "medbridge",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "scheme": "medbridge",
+    "splash": {
+      "backgroundColor": "#0F2942"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.medbridge.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0F2942"
+      },
+      "package": "com.medbridge.app"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-document-picker",
+      "expo-image-picker"
+    ]
+  }
+}

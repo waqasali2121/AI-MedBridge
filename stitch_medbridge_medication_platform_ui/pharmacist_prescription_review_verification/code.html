@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "error-container": "#ffdad6", "on-primary-fixed": "#011d35", "surface-bright": "#f8f9ff", "outline": "#74777e", "secondary": "#006a61", "secondary-container": "#86f2e4", "on-secondary-fixed-variant": "#005049", "background": "#f8f9ff", "primary-container": "#0f2942", "on-secondary-container": "#006f66", "secondary-fixed": "#89f5e7", "surface-dim": "#cbdbf5", "surface-container-highest": "#d3e4fe", "surface-container-high": "#dce9ff", "on-tertiary-container": "#7690ba", "on-primary-fixed-variant": "#314863", "inverse-surface": "#213145", "surface-container": "#e5eeff", "on-error-container": "#93000a", "on-error": "#ffffff", "primary": "#001428", "inverse-on-surface": "#eaf1ff", "tertiary-fixed": "#d5e3ff", "surface-container-low": "#eff4ff", "on-primary-container": "#7991af", "secondary-fixed-dim": "#6bd8cb", "surface": "#f8f9ff", "on-secondary-fixed": "#00201d", "on-background": "#0b1c30", "on-tertiary-fixed-variant": "#2d486d", "surface-tint": "#49607c", "error": "#ba1a1a", "on-surface-variant": "#43474d", "tertiary": "#00132c", "surface-container-lowest": "#ffffff", "surface-variant": "#d3e4fe", "on-primary": "#ffffff", "on-tertiary": "#ffffff", "tertiary-fixed-dim": "#adc8f5", "tertiary-container": "#07284c", "primary-fixed-dim": "#b0c9e8", "inverse-primary": "#b0c9e8", "on-secondary": "#ffffff", "on-tertiary-fixed": "#001c3b", "outline-variant": "#c3c6ce", "on-surface": "#0b1c30", "primary-fixed": "#d1e4ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "space-lg": "1.5rem", "margin-lg": "3rem", "space-xl": "2rem", "gutter-sm": "1rem", "margin-sm": "1rem", "space-md": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "gutter-lg": "2rem", "margin": "1.5rem" }, "fontFamily": { "body-md": ["Inter"], "headline-xl": ["Plus Jakarta Sans"], "label-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-lg": ["Inter"], "label-sm": ["Inter"], "headline-sm": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "headline-xl-mobile": ["Plus Jakarta Sans"] }, "fontSize": { "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "headline-xl": ["36px", { "lineHeight": "44px", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-lg": ["30px", { "lineHeight": "38px", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "14px", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "headline-xl-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center gap-space-sm bg-surface-container-lowest"><img alt="MedBridge Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X4Xixz5ysKeIo4wcFcMPOx0VS3nTNkcWEkhFOFoNFFm7ORkYP0nOGWaKaRyLIcp11qpdNQvITpECg11zHHhL0j5uegQN2f0zxAfuAo-WrjqUn2Xr5ej6DMy2jR6O6rXP6bdFFZCJxy30r-fs6yYuc0xkB-mxOOS02k2aE6Kupr8hpf7eF399myeaD7cB584AyeW7y0Ituy74usz75hnDAK4FpmvxjkC5SFa_JsFZ74RT-U7CpiECDP3-s"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary leading-tight tracking-tight">MedBridge</span><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Clinical Portal</span></div></div><div class="px-space-md py-space-sm"><nav class="flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg" data-path="dashboard" href="#"><span class="material-symbols-outlined text-xl">dashboard</span><span>Dashboard</span></a><a aria-current="page" class="flex items-center justify-between px-space-md py-space-sm transition-colors bg-primary-container text-on-primary font-label-lg rounded-lg" data-path="pending-reviews" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-xl">assignment_late</span><span>Pending Reviews</span></div><span class="bg-secondary text-on-secondary font-label-sm text-label-sm px-space-xs py-0.5 rounded-full">12</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg" data-path="reviewed" href="#"><span class="material-symbols-outlined text-xl">verified_user</span><span>Reviewed</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg" data-path="patients" href="#"><span class="material-symbols-outlined text-xl">personal_injury</span><span>Patients</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg" data-path="prescriptions" href="#"><span class="material-symbols-outlined text-xl">prescriptions</span><span>Prescriptions</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg" data-path="medication-information" href="#"><span class="material-symbols-outlined text-xl">medication</span><span>Medication Information</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg" data-path="reports" href="#"><span class="material-symbols-outlined text-xl">monitoring</span><span>Reports</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-lg text-label-lg" data-path="settings" href="#"><span class="material-symbols-outlined text-xl">settings</span><span>Settings</span></a></nav></div></div><div class="p-space-md m-space-md rounded-xl bg-surface-container-low"><div class="flex items-center gap-space-xs text-secondary"><span class="material-symbols-outlined text-sm">lock</span><span class="font-label-sm text-label-sm uppercase tracking-wide">HIPAA Compliant</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">Clinical session active and encrypted.</p></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40"><div class="w-full h-16 px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-xl">search</span><input class="w-full bg-surface-container-low text-on-surface placeholder:text-on-surface-variant pl-10 pr-space-md py-2 rounded-lg font-body-md text-body-md outline-none focus:bg-surface-container-lowest shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all" placeholder="Search patients, prescriptions, MRN, Rx ID..." type="text"/></div><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-2 rounded-lg text-on-surface-variant whitespace-nowrap cursor-pointer"><span class="material-symbols-outlined text-lg text-secondary">local_hospital</span><span class="font-label-md text-label-md text-on-surface">St. Mary's General - Outpatient Pharmacy</span><span class="material-symbols-outlined text-base">arrow_drop_down</span></div></div><div class="flex items-center gap-space-md"><div class="hidden 2xl:flex items-center gap-space-xs bg-surface-container-highest px-space-sm py-1.5 rounded-full"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant">AI Safety Protocols Active - Clinical Verification Required</span></div><button aria-label="Notifications" class="relative p-2 rounded-full text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-2xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-error rounded-full ring-2 ring-surface-container-lowest"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeITi7HeRThRB1-O7LY7MnMEUQY4KNYbHt0V7HfjxpHC3pmfA0AQpFUqGAgHUFhMPFeovOoxzZT4GBsjipoe__6JbBlM9A-2Ebg01GSrbmPL8HF0qO1bxScP3nBEd37Ent6Dhxz8hgQSls-xFd9ofpfPsBi8ExJCmLmVXLY9aEjZ-Py7ADLNChKT9Fyr3r2RvoR7QqwuEvLld51p0a5eeBdWZ-twQCekOIKHwFk9t0HlwLB6mU6Unq"/><div class="hidden lg:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface font-medium leading-tight">Dr. Sarah Reid, PharmD</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Lead Clinical Pharmacist</span></div></div></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Dynamic Clinical Workspace Root -->
+<div class="w-full px-gutter py-space-md flex flex-col gap-space-md">
+<!-- Top Clinical Breadcrumb & Patient Dossier Header -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-space-sm relative overflow-hidden">
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+            Prescriptions
+            <span class="material-symbols-outlined text-sm">chevron_right</span>
+</span>
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+            Review Queue
+            <span class="material-symbols-outlined text-sm">chevron_right</span>
+</span>
+<span class="font-label-lg text-label-lg text-primary flex items-center gap-space-xs">
+<span class="font-mono bg-surface-container px-2 py-0.5 rounded text-primary">RX-90823</span>
+<span class="font-semibold">Farhan Ahmed</span>
+<span class="text-on-surface-variant font-normal">(MRN-88392)</span>
+</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<!-- Language Mode Switcher -->
+<div class="flex items-center bg-surface-container-low px-space-sm py-1 rounded-lg gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-sm">translate</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Output Target:</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">English &amp; Urdu (اردو)</span>
+</div>
+<!-- Status Indicator Badge -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 shadow-sm" style="background-color: #fffbeb; color: #b45309;">
+<span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+<span class="material-symbols-outlined text-sm">pending_actions</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-bold">Needs Clinical Verification</span>
+</div>
+</div>
+</div>
+<!-- Clinical Vitals / Prescriber Banner Strip -->
+<div class="w-full bg-surface-container-low rounded-lg p-space-sm flex flex-wrap items-center justify-between gap-space-md text-body-sm font-body-sm">
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-secondary">person</span>
+<span class="font-semibold text-on-surface">Farhan Ahmed</span>
+<span class="text-on-surface-variant">54y Male • 74 kg</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-secondary">emergency</span>
+<span class="text-on-surface-variant">Allergies:</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-medium">Penicillin None Known</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-secondary">stethoscope</span>
+<span class="text-on-surface-variant">Prescriber:</span>
+<span class="text-on-surface font-medium">Dr. Michael Harris</span>
+<span class="font-mono text-label-sm text-on-surface-variant">(Reg: PMDC-44219)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-base text-secondary">domain</span>
+<span>Outpatient Pulmonology • Care Transition Hub</span>
+</div>
+</div>
+</div>
+<!-- Main Workspace Split: Left (Prescription Document) 48%, Right (Clinical Verification & Urdu AI) 52% -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start pb-24">
+<!-- LEFT COLUMN: High-Fidelity Hospital Computerized E-Prescription Document Viewer (lg:col-span-6 48%-ish) -->
+<div class="lg:col-span-6 flex flex-col gap-space-sm">
+<!-- Viewer Control Bar -->
+<div class="w-full bg-surface-container-lowest px-space-md py-2.5 rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-lg">document_scanner</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Original E-Prescription Archive</span>
+<span class="bg-surface-container px-2 py-0.5 rounded text-label-sm font-label-sm text-on-surface-variant">HL7-FHIR Ingested</span>
+</div>
+<!-- Zoom & Display Tools -->
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="p-1 rounded hover:bg-surface-container-lowest text-on-surface-variant transition-colors" id="zoomOutBtn" title="Zoom Out">
+<span class="material-symbols-outlined text-base">zoom_out</span>
+</button>
+<span class="font-mono font-label-sm text-label-sm px-2 text-on-surface" id="zoomLevelDisplay">100%</span>
+<button class="p-1 rounded hover:bg-surface-container-lowest text-on-surface-variant transition-colors" id="zoomInBtn" title="Zoom In">
+<span class="material-symbols-outlined text-base">zoom_in</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-lowest text-on-surface-variant transition-colors ml-1" id="fitWidthBtn" title="Fit to Canvas">
+<span class="material-symbols-outlined text-base">fit_screen</span>
+</button>
+</div>
+</div>
+<!-- Document Viewer Container with Ambient Elevation -->
+<div class="relative w-full bg-surface-dim rounded-xl p-4 shadow-sm overflow-hidden flex justify-center">
+<!-- Extraction Telemetry Overlay Badge -->
+<div class="absolute top-6 left-6 z-20 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-1.5 rounded-lg shadow-md flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base">auto_awesome</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary font-semibold leading-none">OCR Extraction Confidence: 99.2%</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant leading-none mt-1">Computerized font detected • 3 of 3 items mapped</span>
+</div>
+</div>
+<!-- Document Canvas (Simulated EHR Printed Sheet) -->
+<div class="w-full max-w-2xl bg-surface-container-lowest rounded-lg shadow-xl p-8 transition-transform duration-200 origin-top text-on-surface" id="prescriptionCanvas">
+<!-- Hospital Masthead -->
+<div class="flex flex-col items-center text-center pb-4 bg-surface-container-low/40 rounded p-4 mb-6">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-secondary text-2xl">local_hospital</span>
+<span class="font-headline-sm text-headline-sm text-primary uppercase tracking-tight">METROPOLITAN GENERAL HOSPITAL</span>
+</div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant font-semibold">Department of Pulmonology &amp; Internal Medicine</p>
+<p class="font-body-sm text-label-sm text-on-surface-variant mt-0.5">800 Health Sciences Way, Central Medical District • Tel: (555) 019-4820</p>
+</div>
+<!-- Patient & Rx Metadata Block -->
+<div class="grid grid-cols-2 gap-4 pb-4 mb-4 bg-surface-container-lowest">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Patient Information</span>
+<span class="font-bold text-body-md text-primary">FARHAN AHMED</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">DOB: 12/04/1970 (Age: 54y) • Male</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Address: 442 Park Crescent, Sector G-9</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Allergies: <span class="font-semibold text-primary">NKDA (Penicillin Tested 2021)</span></span>
+</div>
+<div class="flex flex-col gap-1 items-end text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Prescription Token</span>
+<span class="font-mono font-bold text-body-lg text-primary">RX-90823</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">MRN: <span class="font-mono font-semibold">88392-PT</span></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Issue Date: <span class="font-medium text-primary">Oct 24, 2024 - 09:32 AM</span></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Enc Type: Acute Outpatient Visit</span>
+</div>
+</div>
+<!-- Prescribed Medications Section -->
+<div class="mt-4 flex flex-col gap-3">
+<div class="flex items-center justify-between pb-1">
+<span class="font-label-md text-label-md text-primary font-bold uppercase tracking-wider">Rx Prescribed Orders</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Electronic System Validated (ID: 99402)</span>
+</div>
+<!-- Item 1: Amoxicillin (Highlight active in verify) -->
+<div class="p-3.5 rounded-lg bg-surface-container-high/60 relative">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary rounded-l-lg"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-mono text-label-sm bg-secondary text-on-secondary px-1.5 py-0.5 rounded font-bold">1</span>
+<span class="font-headline-sm text-headline-sm text-primary">Amoxicillin Trihydrate 500mg Capsules</span>
+</div>
+<p class="font-mono text-body-sm text-on-surface font-semibold mt-1">Sig: 1 cap PO TID PC x 5 days</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Instructions: Take one capsule orally three times daily after meals for 5 days.</p>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Dispense</span>
+<span class="font-mono font-bold text-body-md text-primary">15 Capsules</span>
+<span class="font-label-sm text-label-sm text-secondary block font-semibold">0 Refills</span>
+</div>
+</div>
+</div>
+<!-- Item 2: Paracetamol -->
+<div class="p-3 rounded-lg bg-surface-container-low">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-mono text-label-sm bg-surface-container-highest text-on-surface px-1.5 py-0.5 rounded font-bold">2</span>
+<span class="font-body-lg text-body-lg font-bold text-primary">Paracetamol (Acetaminophen) 500mg Tablets</span>
+</div>
+<p class="font-mono text-body-sm text-on-surface font-semibold mt-1">Sig: 2 tab PO Q6H PRN fever/pain</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Instructions: Take two tablets orally every 6 hours as needed for fever or pain.</p>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Dispense</span>
+<span class="font-mono font-bold text-body-md text-primary">20 Tablets</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">0 Refills</span>
+</div>
+</div>
+</div>
+<!-- Item 3: Omeprazole -->
+<div class="p-3 rounded-lg bg-surface-container-low">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-mono text-label-sm bg-surface-container-highest text-on-surface px-1.5 py-0.5 rounded font-bold">3</span>
+<span class="font-body-lg text-body-lg font-bold text-primary">Omeprazole 20mg Delayed-Release Capsules</span>
+</div>
+<p class="font-mono text-body-sm text-on-surface font-semibold mt-1">Sig: 1 cap PO OD AC morning x 14 days</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Instructions: Take one capsule orally once daily in the morning before breakfast for 14 days.</p>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Dispense</span>
+<span class="font-mono font-bold text-body-md text-primary">14 Capsules</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">1 Refill</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Prescriber Signature & Cryptographic Stamp -->
+<div class="mt-8 pt-4 bg-surface-container-low/40 rounded-lg p-4 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">E-Signed Authenticated</span>
+<span class="font-headline-sm text-headline-sm text-primary italic font-serif">Dr. Michael Harris, MD</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Lic: PMDC-44219 • DEA: MH9847120</span>
+<span class="font-mono text-label-sm text-secondary font-medium">Digital Hash: 8fa19e34-c4a0</span>
+</div>
+<div class="flex flex-col items-end">
+<div class="p-2 bg-surface-container-lowest rounded shadow-sm text-center">
+<span class="material-symbols-outlined text-3xl text-secondary">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface block font-bold">CLINICAL EHR</span>
+<span class="font-mono text-label-sm text-on-surface-variant">2024-10-24 09:32:11</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Document Secondary Status Strip -->
+<div class="flex items-center justify-between text-body-sm font-body-sm px-2 text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary">check_circle</span>
+            Cryptographic hospital token verified
+          </span>
+<span class="font-mono">Digest: SHA256-VALID</span>
+</div>
+</div>
+<!-- RIGHT COLUMN: Extracted Medication Information & Clinical Verification Controls (lg:col-span-6 52%-ish) -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<!-- Medication Selection Tabs / Queue Navigation -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm p-space-sm flex items-center gap-space-xs overflow-x-auto">
+<button class="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md shadow-sm transition-all whitespace-nowrap">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>1. Amoxicillin 500mg</span>
+<span class="material-symbols-outlined text-sm">edit_note</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md transition-all whitespace-nowrap">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span>2. Paracetamol 500mg</span>
+</button>
+<button class="flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md transition-all whitespace-nowrap">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span>
+<span>3. Omeprazole 20mg</span>
+</button>
+</div>
+<!-- Card 1: Medicine Verification Accordion / Active Form (Amoxicillin 500mg Focus) -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md relative">
+<div class="flex items-start justify-between gap-space-md pb-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-2xl">pill</span>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">Verification: Item 1 of 3</h3>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Validate extracted entities against original hospital computer record.</span>
+</div>
+<!-- Patient Mobile Confirmation Badge -->
+<div class="flex items-center gap-1.5 px-3 py-1 bg-surface-container-low rounded-full text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm text-secondary">phonelink_ring</span>
+<span class="font-medium text-on-surface">User Confirmed on App:</span>
+<span class="font-bold text-secondary">Yes (Oct 24, 10:14 AM)</span>
+</div>
+</div>
+<!-- Form Fields Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Medicine Name -->
+<div class="flex flex-col gap-1 md:col-span-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Active Substance / Generic Medicine Name</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low text-on-surface px-3 py-2.5 rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest focus:shadow-sm outline-none transition-all pr-10" id="medNameInput" type="text" value="Amoxicillin Trihydrate"/>
+<span class="material-symbols-outlined absolute right-3 text-secondary text-lg">check_circle</span>
+</div>
+</div>
+<!-- Strength -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Strength</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low text-on-surface px-3 py-2 rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest outline-none" type="text" value="500 mg"/>
+<span class="material-symbols-outlined absolute right-3 text-secondary text-base">verified</span>
+</div>
+</div>
+<!-- Dosage Form -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Dosage Form</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low text-on-surface px-3 py-2 rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest outline-none" type="text" value="Capsule"/>
+<span class="material-symbols-outlined absolute right-3 text-secondary text-base">verified</span>
+</div>
+</div>
+<!-- Unit Dose -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Dose</label>
+<input class="w-full bg-surface-container-low text-on-surface px-3 py-2 rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest outline-none" type="text" value="1 capsule"/>
+</div>
+<!-- Frequency -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Frequency (Calculated)</label>
+<input class="w-full bg-surface-container-low text-on-surface px-3 py-2 rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest outline-none" type="text" value="3 times daily (Every 8 hours)"/>
+</div>
+<!-- Duration -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Duration</label>
+<input class="w-full bg-surface-container-low text-on-surface px-3 py-2 rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest outline-none" type="text" value="5 days"/>
+</div>
+<!-- Total Units -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Total Quantity to Dispense</label>
+<input class="w-full bg-surface-container-low text-on-surface px-3 py-2 rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest outline-none" type="text" value="15 Capsules"/>
+</div>
+<!-- Timing & Instructions -->
+<div class="flex flex-col gap-1 md:col-span-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Clinical Timing &amp; Dietary Directions</label>
+<textarea class="w-full bg-surface-container-low text-on-surface px-3 py-2 rounded-lg font-body-md text-body-md focus:bg-surface-container-lowest outline-none resize-none" rows="2">Take after meals with a full glass of water. Space doses evenly throughout waking hours.</textarea>
+</div>
+</div>
+<!-- Verified Toggle Switch -->
+<div class="w-full bg-surface-container-low rounded-lg p-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-xl">fact_check</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Pharmacist Match Confirmation</span>
+</div>
+<label class="inline-flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-5 h-5 accent-secondary rounded cursor-pointer" id="itemVerifyCheck" type="checkbox"/>
+<span class="font-label-md text-label-md text-secondary font-bold" id="verifyCheckLabel">Verified ✓</span>
+</label>
+</div>
+</div>
+<!-- AI-Generated Patient Explanation Box with Bilingual Tabs (English & Urdu) -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-sm relative">
+<!-- Banner Disclaimer -->
+<div class="w-full bg-surface-container rounded-lg p-3 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-lg mt-0.5">smart_toy</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-bold">AI-Drafted Handover Explanation</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Strictly derived from confirmed prescription parameters • Requires clinical validation before handover publishing.</p>
+</div>
+</div>
+<!-- Bilingual Tab Switcher -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="px-3 py-1.5 rounded-md font-label-md text-label-md bg-surface-container-lowest text-primary shadow-sm font-semibold transition-all" id="tabEnBtn">
+                English Explanation
+              </button>
+<button class="px-3 py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" id="tabUrBtn">
+                Urdu Explanation (اردو)
+              </button>
+</div>
+<button class="inline-flex items-center gap-1 text-secondary hover:text-on-secondary-container font-label-md text-label-md font-semibold px-2 py-1 rounded transition-colors" id="editExplanationBtn">
+<span class="material-symbols-outlined text-sm">edit</span>
+<span>Edit Explanation</span>
+</button>
+</div>
+<!-- Tab 1: English Handover Text Panel -->
+<div class="p-4 rounded-lg bg-surface-container-low/60 flex flex-col gap-2 transition-all" id="contentEnPanel">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase font-semibold">Standard Patient-Friendly Language (Flesch-Kincaid Grade 4)</span>
+<span class="material-symbols-outlined text-base text-secondary">volume_up</span>
+</div>
+<p class="font-body-lg text-body-lg text-primary font-medium leading-relaxed" id="enExplanationText">
+              “Take 1 capsule three times a day after meals for 5 days. Complete the entire 5-day course even if you feel better.”
+            </p>
+<div class="flex items-center gap-4 text-body-sm font-body-sm text-on-surface-variant mt-2 pt-2 bg-surface-container-lowest/50 p-2 rounded">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary">schedule</span>
+                08:00 AM • 02:00 PM • 08:00 PM
+              </span>
+<span>•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary">restaurant</span>
+                Take with breakfast, lunch, and dinner
+              </span>
+</div>
+</div>
+<!-- Tab 2: Urdu Handover Text Panel (RTL with elevated line height) -->
+<div class="hidden p-4 rounded-lg bg-surface-container-low/60 flex flex-col gap-2 transition-all" dir="rtl" id="contentUrPanel">
+<div class="flex items-center justify-between text-on-surface-variant" dir="ltr">
+<span class="font-label-sm text-label-sm uppercase font-semibold">اردو میں مریض کی رہنمائی (Urdu Handover Instruction)</span>
+<span class="material-symbols-outlined text-base text-secondary">volume_up</span>
+</div>
+<p class="text-xl text-primary font-medium leading-loose font-serif py-1" id="urExplanationText" style="line-height: 2.2rem;">
+              “کھانے کے بعد دن میں تین بار ایک کیپسول لیں، 5 دن تک۔ علامات بہتر ہونے کے باوجود دوا کا مکمل کورس ختم کریں۔”
+            </p>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant mt-2 pt-2 bg-surface-container-lowest/50 p-2 rounded" dir="rtl">
+<span class="flex items-center gap-1.5 font-medium">
+<span class="material-symbols-outlined text-sm text-secondary">schedule</span>
+                صبح 8 بجے • دوپہر 2 بجے • رات 8 بجے
+              </span>
+<span class="font-medium">
+                کھانے کے بعد ایک گلاس پانی کے ساتھ لیں
+              </span>
+</div>
+</div>
+<!-- Safety Interaction Preview Pill -->
+<div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-container text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-secondary text-base">health_and_safety</span>
+<span class="text-on-surface">No drug-to-drug conflict detected between <strong class="text-primary">Amoxicillin</strong>, <strong class="text-primary">Paracetamol</strong>, and <strong class="text-primary">Omeprazole</strong>.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Clinical Action Toolbar -->
+<div class="fixed bottom-0 left-72 right-0 bg-surface-container-lowest/95 backdrop-blur-xl shadow-xl p-space-md z-40 flex flex-col md:flex-row items-center justify-between gap-space-md">
+<!-- Pharmacist Responsibility Legal Notice -->
+<div class="flex items-start gap-2.5 max-w-2xl">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5">gavel</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-tight">
+<strong class="text-on-surface font-semibold">Pharmacist Verification Responsibility:</strong>
+          By approving, you certify that the extracted medications, dosing schedules, and bilingual explanations accurately reflect the computerized prescription and comply with hospital clinical guidelines.
+        </p>
+</div>
+<!-- Action Buttons Grid -->
+<div class="flex items-center gap-space-sm w-full md:w-auto justify-end flex-wrap">
+<!-- Save Progress -->
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-lg text-label-lg font-medium flex items-center gap-1.5" id="saveProgressBtn">
+<span class="material-symbols-outlined text-base">save</span>
+<span>Save Progress</span>
+</button>
+<!-- Flag Dosage / Interaction -->
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container-low text-error hover:bg-error-container/40 transition-colors font-label-lg text-label-lg font-medium flex items-center gap-1.5" id="flagNoteBtn">
+<span class="material-symbols-outlined text-base">flag</span>
+<span>Flag Note</span>
+</button>
+<!-- Request Clarification -->
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container-low text-amber-700 hover:bg-amber-100/60 transition-colors font-label-lg text-label-lg font-medium flex items-center gap-1.5" id="requestClarifyBtn" style="color: #b45309;">
+<span class="material-symbols-outlined text-base">contact_support</span>
+<span>Request Prescriber Clarification</span>
+</button>
+<!-- Primary Verification CTA -->
+<button class="px-space-lg py-2.5 rounded-lg bg-secondary text-on-secondary hover:bg-on-secondary-container transition-all shadow-md font-label-lg text-label-lg font-bold flex items-center gap-2" id="approveHandoverBtn">
+<span class="material-symbols-outlined text-xl">verified</span>
+<span>Approve &amp; Generate Handover Card</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+    (function() {
+      // Document Zoom Controls
+      let zoomLevel = 100;
+      const canvas = document.getElementById('prescriptionCanvas');
+      const zoomDisplay = document.getElementById('zoomLevelDisplay');
+      const zoomIn = document.getElementById('zoomInBtn');
+      const zoomOut = document.getElementById('zoomOutBtn');
+      const fitWidth = document.getElementById('fitWidthBtn');
+
+      function updateZoom() {
+        if (canvas && zoomDisplay) {
+          canvas.style.transform = 'scale(' + (zoomLevel / 100) + ')';
+          zoomDisplay.textContent = zoomLevel + '%';
+        }
+      }
+
+      if (zoomIn) {
+        zoomIn.addEventListener('click', function() {
+          if (zoomLevel < 140) {
+            zoomLevel += 10;
+            updateZoom();
+          }
+        });
+      }
+
+      if (zoomOut) {
+        zoomOut.addEventListener('click', function() {
+          if (zoomLevel > 70) {
+            zoomLevel -= 10;
+            updateZoom();
+          }
+        });
+      }
+
+      if (fitWidth) {
+        fitWidth.addEventListener('click', function() {
+          zoomLevel = 100;
+          updateZoom();
+        });
+      }
+
+      // Bilingual Tab Toggle
+      const tabEn = document.getElementById('tabEnBtn');
+      const tabUr = document.getElementById('tabUrBtn');
+      const contentEn = document.getElementById('contentEnPanel');
+      const contentUr = document.getElementById('contentUrPanel');
+
+      if (tabEn && tabUr && contentEn && contentUr) {
+        tabEn.addEventListener('click', function() {
+          contentEn.classList.remove('hidden');
+          contentUr.classList.add('hidden');
+          tabEn.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-semibold');
+          tabEn.classList.remove('text-on-surface-variant');
+          tabUr.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-semibold');
+          tabUr.classList.add('text-on-surface-variant');
+        });
+
+        tabUr.addEventListener('click', function() {
+          contentUr.classList.remove('hidden');
+          contentEn.classList.add('hidden');
+          tabUr.classList.add('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-semibold');
+          tabUr.classList.remove('text-on-surface-variant');
+          tabEn.classList.remove('bg-surface-container-lowest', 'text-primary', 'shadow-sm', 'font-semibold');
+          tabEn.classList.add('text-on-surface-variant');
+        });
+      }
+
+      // Pharmacist Verification Checkbox Toggle
+      const verifyCheck = document.getElementById('itemVerifyCheck');
+      const verifyLabel = document.getElementById('verifyCheckLabel');
+
+      if (verifyCheck && verifyLabel) {
+        verifyCheck.addEventListener('change', function() {
+          if (verifyCheck.checked) {
+            verifyLabel.textContent = 'Verified ✓';
+            verifyLabel.className = 'font-label-md text-label-md text-secondary font-bold';
+          } else {
+            verifyLabel.textContent = 'Requires Review';
+            verifyLabel.className = 'font-label-md text-label-md text-on-surface-variant font-semibold';
+          }
+        });
+      }
+
+      // Edit Explanation Trigger
+      const editBtn = document.getElementById('editExplanationBtn');
+      const enText = document.getElementById('enExplanationText');
+      if (editBtn && enText) {
+        editBtn.addEventListener('click', function() {
+          const currentText = enText.innerText.replace(/[“”]/g, '');
+          const newText = prompt('Customize clinical patient instructions (English):', currentText);
+          if (newText !== null && newText.trim() !== '') {
+            enText.innerHTML = '&ldquo;' + newText + '&rdquo;';
+          }
+        });
+      }
+
+      // Approve & Generate Handover Notification
+      const approveBtn = document.getElementById('approveHandoverBtn');
+      if (approveBtn) {
+        approveBtn.addEventListener('click', function() {
+          approveBtn.innerHTML = '<span class="material-symbols-outlined text-xl animate-spin">refresh</span><span>Certifying & Generating...</span>';
+          setTimeout(function() {
+            approveBtn.innerHTML = '<span class="material-symbols-outlined text-xl">done_all</span><span>Verified & Handover Ready</span>';
+            approveBtn.classList.remove('bg-secondary');
+            approveBtn.classList.add('bg-primary');
+            alert('Prescription RX-90823 verified by Dr. Sarah Reid, PharmD. Bilingual handover materials (English & Urdu) generated for patient Farhan Ahmed.');
+          }, 700);
+        });
+      }
+
+      // Clarification Modal / Prompt
+      const clarifyBtn = document.getElementById('requestClarifyBtn');
+      if (clarifyBtn) {
+        clarifyBtn.addEventListener('click', function() {
+          const reason = prompt('Enter clarification request for Dr. Michael Harris (PMDC-44219):', 'Confirming Amoxicillin 5 days course with concomitant Omeprazole regimen.');
+          if (reason) {
+            alert('Secure notification sent to Dr. Michael Harris at Outpatient Pulmonology. Ticket #Q-' + Math.floor(Math.random() * 9000 + 1000));
+          }
+        });
+      }
+
+      // Flag Interaction
+      const flagBtn = document.getElementById('flagNoteBtn');
+      if (flagBtn) {
+        flagBtn.addEventListener('click', function() {
+          const note = prompt('Add clinical interaction / dosage flag note:');
+          if (note) {
+            alert('Clinical flag recorded in patient Farhan Ahmed’s audit log.');
+          }
+        });
+      }
+
+      // Save Progress
+      const saveBtn = document.getElementById('saveProgressBtn');
+      if (saveBtn) {
+        saveBtn.addEventListener('click', function() {
+          const originalText = saveBtn.innerHTML;
+          saveBtn.innerHTML = '<span class="material-symbols-outlined text-base text-secondary">check</span><span>Saved</span>';
+          setTimeout(function() {
+            saveBtn.innerHTML = originalText;
+          }, 1500);
+        });
+      }
+
+    })();
+  </script>
+</div></main></div></body></html>
