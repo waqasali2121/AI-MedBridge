@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "cd apps/pharmacist-dashboard && npm run build",
+  "outputDirectory": "apps/pharmacist-dashboard/.next",
+  "installCommand": "cd apps/pharmacist-dashboard && npm install",
+  "devCommand": "cd apps/pharmacist-dashboard && npm run dev"
+}
